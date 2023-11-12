@@ -1,0 +1,349 @@
+@charset "UTF-8";
+
+/* reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+li {
+    list-style: none;
+}
+
+img {
+    width: 100%;
+    vertical-align: top;
+}
+
+/* wrap */
+#wrap {
+    width: 100%;
+    position: relative;
+}
+
+/* container */
+/* height 값을 정해줘야 한다 그래야 속성값이 적용된다. */
+.container {
+    width: 1200px;
+    margin: 0 auto;
+    height: inherit;
+   
+}
+
+/* header */
+#header {
+    width: 100%;
+    background-color: #f3f3f3;
+   
+    position: relative;
+}
+/* 항상 z-index는 position과 같이 쓰임 */
+#header .container {
+    display: flex;
+    align-items: end;
+    position: relative;
+}
+
+/* 여기다가 end를 해줘야 메뉴창이 밑으로 간다. */
+/* header에다가 flex 넣으면 안먹힘 부모와 자식의 관계이므로 container에다가 넣어야함  */
+/* on 클래스는 container에 position 잡아야 한다. */
+#header .container.on::after {
+    content: '';
+    width: 100%;
+    height: 180px;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    top: 100px;
+    left: 0;
+    z-index: 1;
+    transition: all 400ms;
+}
+
+#header .container .logo {
+    width: 20%;
+    height: 100px;
+    background-color: #efefef;
+}
+#header .container .nav {
+    width: 80%;
+}
+/* 여기 height 값을 지워야 container에서 align -item이 적용됨 */
+#header .container .logo a {
+    padding: 30px;
+    display: inline-block;
+}
+
+#header .container .nav > ul {
+    display: flex;
+    justify-content: right;
+}
+#header .container .nav > ul > li {
+    position: relative;
+}
+#header .container .nav > ul > li > a {
+    display: block;
+    padding: 15px 45px;
+    font-weight: bold;
+   
+}
+#header .container .nav > ul > li > a:hover {
+    background-color: #ffe39c;
+}
+
+#header .container .nav > ul > li > ul {
+    position: absolute;
+    left: 0;
+    top: 50px;
+    width: 100%;
+    display: none;
+    z-index: 1000;
+    
+}
+#header .container .nav > ul > li > ul > li {}
+#header .container .nav > ul > li > ul > li > a {
+    padding: 10px;
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    color: #fff;
+}
+/* 여기서 padding 값이 있으므로 box-sizing을 해준다 */
+
+#header .container .nav > ul > li > ul > li > a:hover {
+    background-color: #ffe090;
+    color: #000;
+}
+
+
+
+
+
+
+/* slider */
+#slider {
+    width: 100%;
+    height: 300px;
+    background-color: #e3e3e3;
+}
+
+#slider .container {
+    overflow: hidden;
+}
+/* container에다가 overflow: hidden 처리를 해줘야 한다. */
+#slider .container .sliderWrap { 
+        display: flex;
+        width: 400%;  
+           
+}
+#slider .container .sliderWrap .slider {
+    width: 1200px;
+}
+#slider .container .sliderWrap .slider a {
+    display: block;
+}
+/* a 부분이 제대호 영역이 잡히지 않기 때문에 block구조로 해줘야 한다. */
+
+
+
+/* contents */
+#contents {
+    width: 100%;
+    
+}
+
+#contents .container {
+    display: flex;   
+}
+
+/* contents .notice */
+#contents .container .notice {
+    width: 400px;
+    height: 200px;
+    padding: 25px 20px;
+    background-color: #fff4e0;
+    box-sizing: border-box;
+}
+
+#contents .container .notice h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#contents .container .notice li {
+    display: flex;
+    line-height: 1.5;
+    position: relative;
+    padding-left: 14px;
+}
+#contents .container .notice li::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    background-color: #333;
+    position: absolute;
+    left: 0;
+    top: 11px;
+    border-radius: 50%;
+}
+
+#contents .container .notice li a {
+    width: 70%;
+    font-size: 14px;
+}
+#contents .container .notice li a:hover {
+    text-decoration: underline;
+}
+   
+#contents .container .notice li span {
+    width: 30%;
+    text-align: right;
+    font-size: 14px;
+}
+
+
+/* contents .gallery */
+#contents .container .gallery {
+    width: 400px;
+    height: 200px;
+    background-color: #f5f5f5;
+}
+#contents .container .gallery h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+#contents .container .gallery ul {
+    display: flex;
+    justify-content: space-between;
+}
+#contents .container .gallery li {
+    width: 114px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+#contents .container .gallery li a {
+    display: block;
+}
+/* 적용사항이 안먹힌다면 block 구조가 아니기 떄문에 안먹히게 된다 */
+#contents .container .gallery li a:hover img {
+    opacity: 0.8;
+}
+
+
+/* contents .banner */
+#contents .container .banner {
+    width: 400px;
+    text-align: center;
+    background-image: url(../images/banner.jpg);
+}
+#contents .container .banner h3 {
+    padding-top: 40px;
+    font-size: 24px;
+    color: #fff;
+}
+#contents .container .banner a {
+    background-color: orange;
+    color: #fff;
+    padding: 10px 30px;
+    display: inline-block;
+    border-radius: 40px;
+    transition: all 0.3s;
+    margin-top: 10px;
+}
+/* 여기서 inline block을 주는 이유는 글자와 겹치기 때문에  */
+#contents .container .banner a:hover {
+    border-radius: 0;
+}
+
+
+/* footer */
+#footer {
+    width: 100%;
+    background-color: #e5e5e5;
+}
+
+#footer .container {
+    display: flex;
+}
+
+#footer .container .footer1 {
+    width: 80%;
+    height: 100px;
+}
+
+#footer .container .footer1 .footer1-1 {
+    width: 100%;
+    height: 50px;
+    
+}
+#footer .container .footer1 .footer1-1 li {
+    display: inline;
+    border-right: 1px solid #333;
+}
+#footer .container .footer1 .footer1-1 li:last-child {
+    border: 0;
+}
+
+#footer .container .footer1 .footer1-1 li a {
+    padding: 18px 10px 16px 0;
+    display: inline-block;
+}
+#footer .container .footer1 .footer1-1 li a:hover {
+    text-decoration: underline;
+}
+
+#footer .container .footer1 .footer1-2 {
+    width: 100%;
+    height: 50px;
+    padding-top: 15px;
+    box-sizing: border-box;
+}
+
+#footer .container .footer2 {
+    width: 20%;
+    height: 100px;
+}
+
+#footer .container .footer2 select {
+    margin-top: 34px;
+    width: 100%;
+    height: 30px;
+}
+
+/* popup */
+.popup-view {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    background-color: #ffe4b5;
+    border: 4px solid orange;
+    padding: 20px;
+    display: none;
+
+}
+.popup-view h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #000;
+    padding-bottom: 5px;
+}
+.popup-view a {
+    display: inline-block;
+    padding: 8px 20px;
+    color: #000;
+    background-color: orange;
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+}

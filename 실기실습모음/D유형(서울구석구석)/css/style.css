@@ -1,0 +1,351 @@
+@charset "UTF-8";
+
+/* reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    color: #333;
+ }
+
+ a {
+    text-decoration: none;
+    color: #333;
+ }
+
+ li {
+    list-style: none;
+ }
+
+ img {
+    vertical-align: top;
+    width: 100%;
+ }
+
+ /* wrap */
+
+ #wrap {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+ }
+ /* footer도 가로로 정렬되는데 footer의 범위값을 찾게하려면 flex-wrap을 해주어야한다. */
+
+ /* aside */
+ 
+ #aside {
+    width: 200px;
+    height: 650px;
+ }
+ 
+ /* aside .logo */
+ #aside .logo {
+      width: 100%;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+ }
+ 
+ #aside .logo a {
+   display: block;
+   font-size: 26px;
+   margin-top: 5px;
+ }
+
+ /* aside .nav */
+#aside .nav {
+      width: 100%;
+      height: 550px;
+     
+ }
+#aside .nav > ul {
+   margin: 5px;
+}
+#aside .nav > ul > li {
+   margin-bottom: 5px;
+}
+#aside .nav > ul > li > a {
+   padding: 10px;
+   display: inline-block;
+   background-color: #ffd139;
+   width: 100%;
+   text-align: center;
+   box-sizing: border-box;
+   border: 2px solid #dead0c;
+}
+
+#aside .nav > ul > li > a:hover {
+   text-decoration: underline;
+}
+
+#aside .nav > ul > li > ul {
+   display: none;
+}
+#aside .nav > ul > li > ul > li {}
+#aside .nav > ul > li > ul > li > a {
+   display: block;
+   padding: 10px;
+   background-color: #ffebab;
+   text-align: center;
+   border-bottom: 2px solid #dead0c;
+}
+#aside .nav > ul > li > ul > li > a:hover {
+   background-color: #ffe281;
+}
+
+
+ /* main */
+ 
+#main {
+    width: calc(100% - 200px);
+   
+}
+
+/* slider */
+#slider {
+   width: 100%;
+   display: flex;
+   overflow: hidden;
+  
+}
+
+
+#slider .imageWrap {
+   width: calc(100% - 230px);
+   height: 400px;
+   
+}
+#slider .imageWrap .image {
+   background-size: cover;
+   background-position: center;
+   width: 100%;
+   height: 100%;
+   
+
+}
+
+#slider .imageWrap .image.i1 {
+   background-image: url(../images/slider01.jpg);
+}
+#slider .imageWrap .image.i2 {
+   background-image: url(../images/slider02.jpg);
+}
+#slider .imageWrap .image.i3 {
+   background-image: url(../images/slider03.jpg);
+}
+/* 여기서 image.i1 과 같이 붙여서 쓰는 이유는 동급인 관계이기 때문이다. */
+
+
+
+#slider .banner {
+   width: 230px;
+   height: 400px;
+   background-image: url(../images/banner.jpg);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+   border: 10px solid #ffd169;
+   box-sizing: border-box;
+}
+
+#slider .banner:hover {
+   border: 5px solid #ffd139;
+}
+
+#slider .banner h3 {
+   color: #fff;
+   font-size: 30px;
+   margin-bottom: 10px;
+}
+
+#slider .banner h3 em {
+   color: #ffd139;
+   font-style: normal;
+   display: block;
+}
+
+#slider .banner a {
+   background-color: #fff;
+   padding: 10px 20px;
+   border-radius: 50px;
+}
+
+
+/* contents */
+
+#contents {
+   width: 100%;
+   display: flex;
+}
+
+
+/* contents .notice */
+#contents .notice {
+   width: 50%;
+   height: 250px;
+   padding: 20px;
+   background-color: #fff6d6;
+   box-sizing: border-box;
+   position: relative;
+}
+
+#contents .notice h3 {
+   font-size: 23px;
+   margin-bottom: 10px;
+}
+
+#contents .notice ul {}
+
+#contents .notice li {
+   display: flex;
+   line-height: 1.7;
+   position: relative;
+   padding-left: 16px;
+}
+
+#contents .notice li::before {
+   content: '';
+   width: 6px;
+   height: 6px;
+   background-color: #a58109;
+   border-radius: 50%;
+   position: absolute;
+   left: 0;
+   top: 8px;
+}
+
+#contents .notice li a {
+   width: 75%;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+}
+/* 공지사항의 글자가 넘칠때 처리해주는 기능  */
+
+#contents .notice li a:hover {
+   text-decoration: underline;
+}
+
+#contents .notice li span {
+   width: 25%;
+   text-align: right;
+}
+#contents .notice .more {
+   position: absolute;
+   right: 30px;
+   top: 20px;
+}
+
+#contents .notice .more:hover {
+   text-decoration: underline;
+}
+
+
+/* contents .gallery */
+#contents .gallery {
+   width: 50%;
+   height: 250px;
+   padding: 20px;
+   box-sizing: border-box;
+}
+
+#contents .gallery h3 {
+   font-size: 24px;
+   margin-bottom: 10px;
+}
+#contents .gallery ul {
+   display: flex;
+}
+#contents .gallery ul li {
+   width: 120px;
+   margin-right: 10px;
+}
+#contents .gallery ul li a {
+   display: block;
+}
+#contents .gallery ul li a span {
+   padding: 10px 0;
+   display: inline-block;
+}
+
+/* padding 값이 먹히지 않는다면 display: inline-block처리를 해준다. */
+#contents .gallery ul li a span:hover {
+   text-decoration: underline;
+}
+
+
+
+/* calc에서 무조건 - 사이에 스페이스 해야함  */
+
+/* footer */
+#footer {
+    width: 100%;
+    display: flex;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    background-color: #fffbea;
+}
+/* 여기에 height 값이 있어야 align item center가 적용된다. */
+
+#footer .footer1 {
+   width: 200px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+#footer .footer1 h4 {
+   font-size: 20px;
+   color: #858585;
+}
+
+#footer .footer2 {
+   width: calc(100% - 430px);
+   line-height: 1.5;
+}
+
+#footer .footer3 {
+   width: 230px;
+   
+}
+
+#footer .footer3 select{
+   width: 90%;
+   height: 30px;
+ }
+
+ /* popup */
+ .popup-view {
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   transform: translate(-50%, -50%);
+   width: 300px;
+   height: 300px;
+   background-color: #fff8e2;
+   border: 8px solid #ffe17d;
+   padding: 20px;
+   display: none;
+}
+
+.popup-view h3 {
+   font-size: 24px;
+   margin-bottom: 15px;
+   border-bottom: 2px solid #333;
+   padding-bottom: 5px;
+   
+}
+
+.popup-close {
+   background-color: #ffc400;
+   padding: 10px 20px;
+   display: inline-block;
+   position: absolute;
+   left: 50%;
+   transform: translateX(-50%);
+   bottom: 20px;
+}
